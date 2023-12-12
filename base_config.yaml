@@ -1,0 +1,36 @@
+seed: 10
+nproc_per_node: 1
+k: 5
+data_path: ./
+train_batch_size: 64
+eval_batch_size: 64
+num_workers: 4
+max_epochs: 1000
+train_epoch_length: null
+eval_epoch_length: null
+lr: 0.001
+unguided_lr: 0.0022
+use_amp: false
+debug: false
+model: resnet50
+dataset: imagenet
+output_dir: ./logs
+log_every_iters: 1
+unguided_iterations: 30
+overfit: false
+guide_model: "unguided"
+loss: "cvxproj"
+out_dir: ""
+attack_sampling: "random"
+
+cvx_proj_margin: 0.2
+topk_loss_coef_upper: 20
+opt_warmup_its: 5
+binary_search_steps: 1
+
+dump_plots: false
+plot_idx: find # or specific batch idx
+plot_out: "myplots/mymethod"
+
+# List of models used to find correct subset
+compare_models: ["resnet50", "deit_small", "vit_base", "densenet121"]
